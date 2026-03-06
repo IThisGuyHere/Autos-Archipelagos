@@ -34,21 +34,21 @@ item_table: Dict[str, REPOItemData] = {
     iname.shop_stock: REPOItemData(ItemClassification.progression,0,base_shop_offset,"Progressive Shop"),
 
     # ---- UPGRADES ----
-    iname.health_up: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.health_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
     iname.strength_up: REPOItemData(ItemClassification.progression,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.range_up: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.sprint_up: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.stamina_up: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.player_count_up: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.double_jump_up: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.tumble_up: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.crouch_rest: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.tumble_wings: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.tumble_climb: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.death_head_battery: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.range_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.sprint_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.stamina_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.player_count_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.double_jump_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.tumble_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.crouch_rest: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.tumble_wings: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.tumble_climb: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.death_head_battery: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
 
     # ---- SHOP UNLOCKS ----
-    iname.small_health: REPOItemData(ItemClassification.filler,2,(base_shop_offset:=base_shop_offset+1),"Misc Filler"),
+    iname.small_health: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Misc Filler"),
     #iname.medium_health: REPOItemData(ItemClassification.filler,2,(base_shop_offset:=base_shop_offset+1),"Health Pack"),   #these were meant to be filler but aren't implemented
     #iname.large_health: REPOItemData(ItemClassification.filler,2,(base_shop_offset:=base_shop_offset+1),"Health Pack"),
     iname.progressive_health: REPOItemData(ItemClassification.progression,3,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
@@ -88,6 +88,12 @@ item_table: Dict[str, REPOItemData] = {
     iname.zero_grav_orb: REPOItemData(ItemClassification.progression,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
     iname.duck_bucket: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
     iname.phase_bridge: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
+
+    # ---- Traps ----
+    iname.monster_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
+    iname.audit_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
+    iname.ping_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
+    iname.moon_phase_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
 
     # ---- Event Items ----
     "Victory": REPOItemData(ItemClassification.progression,0,None,"Event"),

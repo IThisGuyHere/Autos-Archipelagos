@@ -107,10 +107,11 @@ class REPOWorld(World):
         total_filler = self.location_total - items_total
 
         available_filler: List[str] = [upgrade for upgrade in items_to_create if 
-                                         (items_to_create[upgrade] > 0 and (item_table[upgrade].item_group == "Upgrades" or 
-                                                                            item_table[upgrade].item_group == "Misc Filler"))]
+                                         (item_table[upgrade].item_group == "Upgrades" or 
+                                                                            item_table[upgrade].item_group == "Misc Filler" or
+                                                                            item_table[upgrade].item_group == "Traps")]
         print(available_filler)
-        print(trap_items)
+        #print(trap_items)
         print("Loaction Count: " + str(self.location_total))
         print("Item Count: " + str(items_total))
         print("Total Filler: " + str(total_filler))
@@ -141,6 +142,8 @@ class REPOWorld(World):
         for counter in range(0, math.ceil(filler_needed)):
             filler_item = self.random.choices(available_filler,weights= filler_weights,k=1)
             items_to_create[filler_item[0]] += 1
+            if items_to_create[iname.moon_phase_trap] >= 4: 
+                filler_weights[available_filler.index(iname.moon_phase_trap)] = 0
 
         # add items to item pool
         for item, quantity in items_to_create.items():
@@ -202,6 +205,7 @@ class REPOWorld(World):
         slot_data: Dict[str, Any] = {
             #"goal": int(self.options.goal.value)
             "level_quota": int(self.options.level_quota.value),
+            #"pelly_count_required": int(self.options.pelly_count_required.value),
             "pellys_required": set(self.options.pellys_required),
             "pelly_spawning": bool(self.options.pelly_spawning.value),
             "upgrade_locations": int(self.options.shop_upgrade_total.value),
