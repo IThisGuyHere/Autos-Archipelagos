@@ -41,10 +41,10 @@ cart_laser = "C.A.R.T. Laser Unlock"
 
 # Explosive Weapons
 grenade = "Grenade Unlock"
-shock_grenade = "Shock Grenade Unlock"
+shock_grenade = "Shockwave Grenade Unlock"
 stun_grenade = "Stun Grenade Unlock"
 human_grenade = "Human Grenade Unlock"
-duct_taped_grenade = "Duct Taped Grenade Unlock"
+duct_taped_grenade = "Duct Taped Grenades Unlock"
 shockwave_mine = "Shockwave Mine Unlock"
 stun_mine = "Trapzap Unlock"
 explosive_mine = "Explosive Mine Unlock"
@@ -58,12 +58,12 @@ feather_drone = "Feather Drone Unlock"
 zero_grav_drone = "Zero Gravity Drone Unlock"
 
 # CARTS
-pocket_cart = "Pocket C.A.R.T. Unlock"
+pocket_cart = "POCKET C.A.R.T. Unlock"
 cart = "C.A.R.T. Unlock"
 
 # Misc
-valuable_detector = "Valuable Detector Unlock"
-extraction_detector = "Extraction Detector Unlock"
+valuable_detector = "Valuable Tracker Unlock"
+extraction_detector = "Extraction Tracker Unlock"
 energy_crystal = "Energy Crystal Unlock"
 zero_grav_orb = "Zero Gravity Orb Unlock"
 duck_bucket = "Duck Bucket Unlock"
