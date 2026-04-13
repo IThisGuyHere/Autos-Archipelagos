@@ -8,6 +8,7 @@ from .names import location_names as lname
 from .names import item_names as iname
 from .names import region_names as rname
 from .locations import level_types, location_table, pelly_list
+from .items import item_name_groups
 from . import logic
 #import logic
 
@@ -111,10 +112,39 @@ def set_location_rules(world: "REPOWorld") -> None:
             add_rule(multiworld.get_location(valuable,player), lambda state: state.has(iname.strength_up,player,1))
         
     # ---- Monter Soul Logic ----
-    easy_combat_items = {iname.grenade,iname.human_grenade,iname.duct_taped_grenade,iname.explosive_mine,iname.shotgun,iname.gun,iname.pulse_pistol,iname.photon_blaster,iname.cart_cannon,iname.cart_laser}
-    medium_combat_items = {iname.baseball_bat,iname.frying_pan,iname.sledge_hammer,iname.sword}
+    easy_combat_items = item_name_groups["Ranged Shop Unlock"].union(item_name_groups["Explosive Shop Unlock"])
+    medium_combat_items = item_name_groups["Melee Shop Unlock"]
 
-    
+    # -1 = can't be picked up; -2 = must be stunned to pick up
+    strength_req = {
+        lname.animal_soul   	    : 4,
+        lname.apex_predator_soul    : -2,
+        lname.bella_soul    	    : 9,
+        lname.birthday_boy_soul	    : 4,
+        lname.bowtie_soul   	    : 7,
+        lname.chef_soul     	    : 9,
+        lname.cleanup_crew_soul	    : 13,
+        lname.clown_soul    	    : 13,
+        lname.elsa_soul     	    : -2,
+        lname.gambit_soul   	    : 9,
+        lname.headgrab_soul 	    : 4,
+        lname.headman_soul  	    : 13,
+        lname.heart_hugger_soul	    : 9,
+        lname.hidden_soul   	    : 4,
+        lname.huntsman_soul 	    : 9,
+        lname.loom_soul     	    : 13,
+        lname.mentalist_soul	    : 4,
+        lname.oogly_soul    	    : 9,
+        lname.peeper_soul    	    : -1,
+        lname.reaper_soul   	    : 9,
+        lname.robe_soul     	    : 13,
+        lname.rugrat_soul   	    : 4,
+        lname.shadow_child_soul	    : 9,
+        lname.spewer_soul   	    : 4,
+        lname.tick_soul    	        : 0,
+        lname.trudge_soul   	    : 13,
+        lname.upscream_soul	        : 4
+    }
 
     for soul in monster_souls:        
         #Victory if monster hunt is enabled
@@ -125,7 +155,9 @@ def set_location_rules(world: "REPOWorld") -> None:
             add_rule(multiworld.get_location(soul,player), lambda state: state.has_any(easy_combat_items,player))
 
         elif options.combat_logic.value == options.combat_logic.option_medium:
-            add_rule(multiworld.get_location(soul,player), lambda state: (state.has_any(medium_combat_items.union(easy_combat_items),player)) or state.has(iname.strength_up,player,13))
+            add_rule(multiworld.get_location(soul,player), lambda state: (state.has_any(medium_combat_items.union(easy_combat_items),player)) or 
+                     (strength_req[soul] != -1 and (strength_req[soul] != -2 or state.has_any(item_name_groups["Stun Shop Unlock"],player)) 
+                      and state.has(iname.strength_up,player,strength_req[soul])))
 
     # ---- Shop Logic ----
     for loc_name in location_table:
@@ -144,8 +176,3 @@ def set_location_rules(world: "REPOWorld") -> None:
 
 
 #logic.set_options(world.options)
-
-
-
-
-  
