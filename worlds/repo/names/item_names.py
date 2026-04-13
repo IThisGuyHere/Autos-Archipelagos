@@ -81,5 +81,5 @@ shop_stock = "Progressive Shop Stock"
 # ---- Traps ----
 monster_trap = "Extra Monster Trap"
 audit_trap = "Audit Trap"
-ping_trap = "Ping Trap"
+lure_trap = "Monster Lure Trap"
 moon_phase_trap = "Progressive Moon Phase Trap"

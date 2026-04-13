@@ -121,7 +121,7 @@ class REPOWorld(World):
         #traps_needed = total_filler * self.options.trapamount.value / 100
         #print("Traps needed: " + str(math.floor(traps_needed)))
 
-        #Trap Order for Weights: ['Extra Monster Trap', 'Ping Trap', 'Audit Trap']
+        #Trap Order for Weights: ['Extra Monster Trap', 'Monster Lure Trap', 'Audit Trap', 'Progressive Moon Phase Trap']
         #for counter in range(0, math.floor(traps_needed)):
         #    trap_item = self.random.choices(trap_items, weights=[3,3,2],k=1)
         #    items_to_create[trap_item[0]] += 1

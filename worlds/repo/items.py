@@ -92,7 +92,7 @@ item_table: Dict[str, REPOItemData] = {
     # ---- Traps ----
     iname.monster_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
     iname.audit_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
-    iname.ping_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
+    iname.lure_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
     iname.moon_phase_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
 
     # ---- Event Items ----

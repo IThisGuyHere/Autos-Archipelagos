@@ -111,7 +111,7 @@ class FillerItemWeights(OptionDict):
         iname.small_health: 20,
         iname.monster_trap: 8,
         iname.audit_trap: 6,
-        iname.ping_trap: 15,
+        iname.lure_trap: 15,
         iname.moon_phase_trap: 3    # there will never be more than 4
     }
     
