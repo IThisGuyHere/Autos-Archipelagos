@@ -60,8 +60,8 @@ def set_location_rules(world: "REPOWorld") -> None:
     
     # ---- Pelly Logic ----
     #Player Should be able to reach all Pellys
-    for pelly in pellys:
-        if (options.pelly_spawning == True or any(map(pelly.__contains__,options.pellys_required))):
+    if options.pellys_required > 0:
+        for pelly in pellys:
 
             #Victory for spawned pellys
             add_rule(multiworld.get_location("Victory",player), lambda state, pell=pelly: state.can_reach_location(pell, player))

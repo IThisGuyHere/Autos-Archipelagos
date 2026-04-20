@@ -11,38 +11,22 @@ from .names import item_names as iname
 #     option_level_quota = 1
 #     default = 0
 
-class PellyHunt(OptionSet):
-    """Choose which Pellys will be required for victory"""
+class PellyHunt(Range):
+    """Choose how many Pellys will be required for victory."""
     display_name: str = "Pellys Required"
-    valid_keys = {
-        "Standard Pelly",
-        "Glass Pelly",
-        "Gold Pelly"
-    }
-    default = valid_keys
-
-#class PellyCountRequired(Range):
-#    """Choose how many of the 12 pellys must be found for your goal."""
-#    display_name: str = "Pelly Count Required"
-#    range_start = 1
-#    range_end = 12
-#    default = 12
-
-class PellySpawning(DefaultOnToggle):
-    """Determines how Pellys are spawned
-    True: Spawns all Pellys. All Pellys are locations.
-    False: Only spawns Pellys chosen in 'Pellys Required'. Only spawned Pellys are Locations."""
-    display_name: str = "Pelly Spawning"
+    range_start = 0
+    range_end = 12
+    default = 12
 
 class LevelQuota(Range):
-    """Choose how many levels must be completed for your goal. This is in addition to gathering all Pellys."""
+    """Choose how many levels must be completed for your goal, in addition to gathering enough Pellys."""
     display_name: str = "Level Quota"
     range_start = 1
     range_end = 20
     default = 8
 
 class ValuableHunt(Toggle):
-    """Determines if extracting all valuables is required for your goal."""
+    """Determines if extracting all valuables (excluding pellys) is required for your goal."""
     display_name: str = "Valuable Hunt"
 
 class MonsterHunt(Toggle):
@@ -121,8 +105,6 @@ class FillerItemWeights(OptionDict):
 class REPOGameOptions(PerGameCommonOptions):
     #goal: Goal
     pellys_required: PellyHunt
-    #pelly_count_required: PellyCountRequired
-    pelly_spawning : PellySpawning
     level_quota: LevelQuota 
     valuable_hunt: ValuableHunt
     monster_hunt: MonsterHunt

@@ -171,7 +171,7 @@ class REPOWorld(World):
                 if (location_table[location_name].location_group == "Shop Upgrade Purchase" and location_table[location_name].location_id_offset > self.options.shop_upgrade_total):
                     self.location_total -= 1
                     continue
-                elif(location_table[location_name].location_group.__contains__("Pelly") and self.options.pelly_spawning == False and not any(map(location_name.__contains__, self.options.pellys_required))):
+                elif(location_table[location_name].location_group.__contains__("Pelly") and self.options.pellys_required == 0):
                     self.location_total -= 1
                     print(f"Pelly Removed: {location_name}")
                     continue
@@ -205,9 +205,7 @@ class REPOWorld(World):
         slot_data: Dict[str, Any] = {
             #"goal": int(self.options.goal.value)
             "level_quota": int(self.options.level_quota.value),
-            #"pelly_count_required": int(self.options.pelly_count_required.value),
-            "pellys_required": set(self.options.pellys_required),
-            "pelly_spawning": bool(self.options.pelly_spawning.value),
+            "pellys_required": int(self.options.pellys_required.value),
             "upgrade_locations": int(self.options.shop_upgrade_total.value),
             "shop_stock" : int(self.options.shop_stock.value),
             "valuable_hunt": bool(self.options.valuable_hunt.value),
