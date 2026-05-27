@@ -157,9 +157,9 @@ def set_location_rules(world: "REPOWorld") -> None:
             add_rule(multiworld.get_location(soul,player), lambda state: state.has_any(easy_combat_items,player))
 
         elif options.combat_logic.value == options.combat_logic.option_medium:
-            add_rule(multiworld.get_location(soul,player), lambda state: ((state.has_any(medium_combat_items.union(easy_combat_items),player)) or 
-                     (strength_req_map[soul][0] != -1 and state.has(iname.strength_up,player,strength_req_map[soul][0])) or 
-                     (strength_req_map[soul][1] != -1 and state.has(iname.strength_up,player,strength_req_map[soul][1]) 
+            add_rule(multiworld.get_location(soul,player), lambda state, msoul=soul: ((state.has_any(medium_combat_items.union(easy_combat_items),player)) or 
+                     (strength_req_map[msoul][0] != -1 and state.has(iname.strength_up,player,strength_req_map[msoul][0])) or 
+                     (strength_req_map[msoul][1] != -1 and state.has(iname.strength_up,player,strength_req_map[msoul][1]) 
                       and state.has_any(item_name_groups["Stun Shop Unlock"],player))))
 
     # ---- Shop Logic ----
