@@ -180,11 +180,9 @@ class REPOWorld(World):
                     location = REPOLocation(self.player, location_name, location_id, region)
 
                 if (location_table[location_name].location_group == "Shop Upgrade Purchase" and location_table[location_name].location_id_offset > self.options.shop_upgrade_logical):
-                    print(f"Excluding {location_name}")
-                    location.progress_type == LocationProgressType.EXCLUDED
+                    location.progress_type = LocationProgressType.EXCLUDED
                 elif(location_table[location_name].location_group == "Shop Upgrade Purchase"and location_table[location_name].location_id_offset % 20 == 0):
-                    print(f"Making {location} Priority")
-                    location.progress_type == LocationProgressType.PRIORITY
+                    location.progress_type = LocationProgressType.PRIORITY
                 region.locations.append(location)
 
         # for i in range(len(shell_items)):
